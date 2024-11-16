@@ -1,3 +1,45 @@
+/* Add these styles at the top of your CSS file */
+html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-section {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+}
+
+.header-content {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
 /* Global Styles */
 body {
     font-family: 'Montserrat', sans-serif;
@@ -10,15 +52,19 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 100vw;
 }
 
 nav {
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 100vw;
     background-color: rgba(29, 29, 31, 0.9);
     z-index: 100;
     padding: 10px 0;
+    left: 0;
+    margin: 0;
 }
 
 nav ul {
@@ -48,12 +94,18 @@ nav ul li a:hover {
 .hero-section {
     position: relative;
     height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
     background: url('background.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #F5F5F7;
+    overflow: hidden;
 }
 
 .hero-section::before {
@@ -254,11 +306,15 @@ footer {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
 }
 
 .image-wrapper {
     text-align: center;
     max-width: 400px;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
 .image-wrapper img {
@@ -272,6 +328,8 @@ footer {
     margin-top: 0.5rem;
     font-size: 0.9rem;
     color: #666;
+    padding: 0 1rem;
+    word-wrap: break-word;
 }
 
 /* Events Section Styles */
@@ -579,11 +637,40 @@ footer {
     }
 
     .about-section, .events-section, .programs-section, .get-involved-section, .contact-section {
-        margin-top: 80px;  /* Add space below the mobile menu */
+        margin-top: 80px;  /* Space below mobile menu for content pages */
     }
     
     .hero-section {
-        margin-top: 60px;  /* Add space for the homepage hero section */
+        margin-top: 0;  /* Reset margin for hero section */
+        padding-top: 60px;  /* Add padding instead to account for fixed nav */
+        min-height: calc(100vh - 60px);  /* Adjust height to account for nav */
+    }
+
+    .about-section {
+        padding: 1rem;
+        margin-top: 60px;
+    }
+
+    .about-section .content {
+        padding: 0 1rem;
+    }
+
+    .about-section h1 {
+        font-size: 2rem;
+    }
+
+    .images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-wrapper {
+        max-width: 100%;  /* Allow full width on mobile */
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        max-width: 350px;  /* Limit maximum image width on mobile */
     }
 }
 
