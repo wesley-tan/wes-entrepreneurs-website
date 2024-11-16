@@ -4,7 +4,7 @@ The official website for Wesleyan Entrepreneurs, the premier entrepreneurship cl
 
 ## 🌐 Live Demo
 
-Visit our website: [wes-entrepreneurs-website.vercel.app](https://wes-entrepreneurs-website.vercel.app/)
+Visit our website: [wes-entrepreneurs.vercel.app/](https://wes-entrepreneurs.vercel.app/)
 
 ## 📄 License
 
