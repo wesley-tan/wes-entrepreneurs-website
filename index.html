@@ -9,12 +9,12 @@
 </head>
 <body>
     <nav>
-        <button class="hamburger" id="hamburger">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <ul id="nav-links">
+        <ul id="nav-links" class="fade-in">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="events.html">Events</a></li>
@@ -24,24 +24,23 @@
         </ul>
     </nav>
     
-    
     <div class="hero-section parallax bg1">
-        <div class="header-content">
-            <img src="logo.png" alt="Wesleyan Entrepreneurs Logo">
-            <h1>Wesleyan Entrepreneurs</h1>
-            <p>Fostering openness, inclusion, and community in tech and social entrepreneurship</p>
+        <div class="header-content" data-animate="fade-in">
+            <img src="logo.png" alt="Wesleyan Entrepreneurs Logo" class="animate-logo">
+            <h1 class="animate-title">Wesleyan Entrepreneurs</h1>
+            <p class="animate-text">Fostering openness, inclusion, and community in tech and social entrepreneurship</p>
         </div>
     </div>
 
-    <!-- <section class="section">
+    <section class="section" data-animate="fade-in">
         <h2>Welcome to Wesleyan Entrepreneurs</h2>
-        <p>We aim to be Wesleyan’s premier entrepreneurship club, fostering openness, inclusion, and community in tech and social entrepreneurship.</p>
+        <p>We aim to be Wesleyan's premier entrepreneurship club, fostering openness, inclusion, and community in tech and social entrepreneurship.</p>
     </section>
 
-    <section class="section">
+    <section class="section" data-animate="fade-in">
         <h2>About Us</h2>
         <p>Wesleyan Entrepreneurs is a student-organized club dedicated to creating programs that support and connect the larger startup community.</p>
-        <ul>
+        <ul class="animated-list">
             <li>Start projects</li>
             <li>Support ongoing ventures</li>
             <li>Hone entrepreneurial skills</li>
@@ -49,26 +48,25 @@
         </ul>
     </section>
     
-    <section class="section parallax bg2">
+    <section class="section parallax bg2" data-animate="fade-in">
         <div class="content">
             <h2>Our Programs</h2>
             <p>We offer a variety of programs to help students develop their entrepreneurial skills.</p>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-animate="fade-in">
         <h2>Events</h2>
         <p>Our speaker series brings esteemed alumni who are startup founders and operators on-campus to share their insights on various industries.</p>
     </section>
 
-    <section class="section parallax bg3">
+    <section class="section parallax bg3" data-animate="fade-in">
         <div class="content">
             <h2>Get Involved</h2>
             <p>Join us to build your network, skills, and start cool things!</p>
         </div>
-    </section> -->
+    </section>
 
-    <!-- Modal structure -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
