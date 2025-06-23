@@ -19,40 +19,29 @@ export const Header: React.FC = () => {
     console.log('Navigation clicked:', href);
     setIsOpen(false);
     
-    // Small delay to allow mobile menu to close
+    // Simple timeout to let mobile menu close
     setTimeout(() => {
       if (href === '#home') {
         console.log('Scrolling to top');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        console.log('Looking for element:', href);
-        const element = document.querySelector(href) as HTMLElement;
-        console.log('Found element:', element);
-        
-        if (element) {
-          // Account for fixed header height
-          const headerOffset = 80;
-          const elementPosition = element.offsetTop;
-          const offsetPosition = elementPosition - headerOffset;
-          
-          console.log('Scrolling to position:', offsetPosition);
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        } else {
-          console.error('Element not found for:', href);
-          // Fallback - try without the hash
-          const elementId = href.replace('#', '');
-          const fallbackElement = document.getElementById(elementId);
-          console.log('Fallback element:', fallbackElement);
-          
-          if (fallbackElement) {
-            fallbackElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }
+        return;
       }
-    }, 100);
+      
+      // Find the element
+      const elementId = href.replace('#', '');
+      const element = document.getElementById(elementId);
+      
+      if (element) {
+        console.log('Found element, scrolling...');
+        // Simple scrollIntoView with offset using CSS scroll-margin-top
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        console.error(`Element with ID "${elementId}" not found`);
+      }
+    }, 50);
   };
 
   return (
@@ -61,14 +50,16 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="cursor-pointer"
+            <button
+              className="cursor-pointer border-none bg-transparent p-1 rounded"
               onClick={(e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 console.log('Logo clicked');
                 handleNavClick('#home');
               }}
+              type="button"
+              aria-label="Go to home"
             >
               <img 
                 src={logoImage} 
@@ -83,25 +74,25 @@ export const Header: React.FC = () => {
                   console.log('Header logo loaded successfully');
                 }}
               />
-            </motion.div>
+            </button>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <motion.button
+              <button
                 key={item.name}
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log('Button clicked:', item.name, item.href);
+                  e.stopPropagation();
+                  console.log('Desktop nav button clicked:', item.name, item.href);
                   handleNavClick(item.href);
                 }}
-                className="text-wes-black hover:text-wes-royal transition-colors font-mont font-medium"
-                whileHover={{ y: -2 }}
+                className="text-wes-black hover:text-wes-royal transition-colors font-mont font-medium cursor-pointer border-none bg-transparent p-2 rounded"
                 type="button"
               >
                 {item.name}
-              </motion.button>
+              </button>
             ))}
           </nav>
 
