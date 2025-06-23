@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import logoImage from '../../assets/WesEntrepreneurLogo_MAIN.png';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -15,15 +16,43 @@ export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavClick = (href: string) => {
-    if (href === '#home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    console.log('Navigation clicked:', href);
     setIsOpen(false);
+    
+    // Small delay to allow mobile menu to close
+    setTimeout(() => {
+      if (href === '#home') {
+        console.log('Scrolling to top');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        console.log('Looking for element:', href);
+        const element = document.querySelector(href) as HTMLElement;
+        console.log('Found element:', element);
+        
+        if (element) {
+          // Account for fixed header height
+          const headerOffset = 80;
+          const elementPosition = element.offsetTop;
+          const offsetPosition = elementPosition - headerOffset;
+          
+          console.log('Scrolling to position:', offsetPosition);
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        } else {
+          console.error('Element not found for:', href);
+          // Fallback - try without the hash
+          const elementId = href.replace('#', '');
+          const fallbackElement = document.getElementById(elementId);
+          console.log('Fallback element:', fallbackElement);
+          
+          if (fallbackElement) {
+            fallbackElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+    }, 100);
   };
 
   return (
@@ -35,12 +64,24 @@ export const Header: React.FC = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="cursor-pointer"
-              onClick={() => handleNavClick('#home')}
+              onClick={(e) => {
+                e.preventDefault();
+                console.log('Logo clicked');
+                handleNavClick('#home');
+              }}
             >
               <img 
-                src="/src/assets/WesEntrepreneurLogo_MAIN.png" 
+                src={logoImage} 
                 alt="Wesleyan Entrepreneurs Logo" 
                 className="h-8 w-auto"
+                onError={(e) => {
+                  console.error('Header logo failed to load');
+                  // Fallback to public logo
+                  (e.target as HTMLImageElement).src = '/logo.png';
+                }}
+                onLoad={() => {
+                  console.log('Header logo loaded successfully');
+                }}
               />
             </motion.div>
           </div>
@@ -50,9 +91,14 @@ export const Header: React.FC = () => {
             {navItems.map((item) => (
               <motion.button
                 key={item.name}
-                onClick={() => handleNavClick(item.href)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log('Button clicked:', item.name, item.href);
+                  handleNavClick(item.href);
+                }}
                 className="text-wes-black hover:text-wes-royal transition-colors font-mont font-medium"
                 whileHover={{ y: -2 }}
+                type="button"
               >
                 {item.name}
               </motion.button>
@@ -85,8 +131,13 @@ export const Header: React.FC = () => {
               {navItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log('Mobile nav clicked:', item.name, item.href);
+                    handleNavClick(item.href);
+                  }}
                   className="block w-full text-left px-3 py-2 text-wes-black hover:text-wes-royal font-mont font-medium"
+                  type="button"
                 >
                   {item.name}
                 </button>
