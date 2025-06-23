@@ -39,7 +39,7 @@ export const Contact: React.FC = () => {
               <EnvelopeIcon className="w-6 h-6 text-white" />
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="text-xl font-mont font-bold text-wes-royal mb-2">Email</h3>
+                             <h3 className="text-lg font-mont font-bold text-wes-royal mb-2">Email</h3>
               <p className="font-inter text-blue-600 group-hover:text-blue-700 transition-colors break-words">
                 {siteContent.contact.email}
               </p>
@@ -63,7 +63,7 @@ export const Contact: React.FC = () => {
               </svg>
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="text-xl font-mont font-bold text-wes-royal mb-2">Instagram</h3>
+                             <h3 className="text-lg font-mont font-bold text-wes-royal mb-2">Instagram</h3>
               <p className="font-inter text-[#E1306C] group-hover:text-pink-600 transition-colors break-words">
                 @wesentrepreneurs
               </p>
@@ -87,7 +87,7 @@ export const Contact: React.FC = () => {
               </svg>
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="text-xl font-mont font-bold text-wes-royal mb-2">LinkedIn</h3>
+                             <h3 className="text-lg font-mont font-bold text-wes-royal mb-2">LinkedIn</h3>
               <p className="font-inter text-[#0A66C2] group-hover:text-blue-700 transition-colors break-words">
                 Wesleyan Entrepreneurs
               </p>
@@ -105,7 +105,7 @@ export const Contact: React.FC = () => {
               <MapPinIcon className="w-6 h-6 text-white" />
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="text-xl font-mont font-bold text-wes-royal mb-2">Location</h3>
+                             <h3 className="text-lg font-mont font-bold text-wes-royal mb-2">Location</h3>
               <p className="font-inter text-wes-black break-words">
                 Wesleyan University, Middletown, CT
               </p>
@@ -120,10 +120,10 @@ export const Contact: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="bg-wes-royal rounded-xl shadow-xl p-12 text-center max-w-4xl mx-auto"
         >
-          <h3 className="text-3xl md:text-4xl font-mont font-bold text-white mb-6">
-            Join Our Community
-          </h3>
-          <p className="text-xl font-inter text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
+                     <h3 className="text-2xl md:text-3xl font-mont font-bold text-white mb-6">
+             Join Our Community
+           </h3>
+           <p className="text-lg font-inter text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
             Fill out our interest form to get involved with Wesleyan Entrepreneurs and start your entrepreneurial journey with us.
           </p>
           <motion.a

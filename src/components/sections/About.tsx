@@ -13,10 +13,10 @@ export const About: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-mont font-bold text-wes-royal mb-8 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-mont font-bold text-wes-royal mb-6">
             {siteContent.about.title}
           </h2>
-          <p className="text-xl md:text-2xl font-inter text-wes-black max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg font-inter text-wes-black max-w-3xl mx-auto leading-relaxed">
             {siteContent.about.mission}
           </p>
         </motion.div>
@@ -39,10 +39,10 @@ export const About: React.FC = () => {
               />
             </div>
             
-            <h3 className="text-3xl md:text-4xl font-mont font-bold text-wes-royal mb-8">
+            <h3 className="text-2xl font-mont font-bold text-wes-royal mb-4">
               What We Do
             </h3>
-            <p className="font-inter text-wes-black text-lg leading-relaxed">
+            <p className="font-inter text-wes-black leading-relaxed">
               {siteContent.about.whatWeDo}
             </p>
           </motion.div>
@@ -64,10 +64,10 @@ export const About: React.FC = () => {
               />
             </div>
             
-            <h3 className="text-3xl md:text-4xl font-mont font-bold text-wes-royal mb-8">
+            <h3 className="text-2xl font-mont font-bold text-wes-royal mb-4">
               Member Benefits
             </h3>
-            <p className="font-inter text-wes-black text-lg leading-relaxed">
+            <p className="font-inter text-wes-black leading-relaxed">
               {siteContent.about.memberBenefits}
             </p>
           </motion.div>

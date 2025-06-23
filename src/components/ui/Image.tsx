@@ -8,7 +8,7 @@ interface ImageProps {
   className?: string;
   loading?: 'lazy' | 'eager';
   objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
-  placeholder?: string;
+  style?: React.CSSProperties;
   onLoad?: () => void;
   onError?: () => void;
   srcSet?: string;
@@ -23,7 +23,7 @@ export const Image: React.FC<ImageProps> = ({
   className = '',
   loading = 'lazy',
   objectFit = 'cover',
-  placeholder,
+  style,
   onLoad,
   onError,
   srcSet,
@@ -45,7 +45,7 @@ export const Image: React.FC<ImageProps> = ({
   const aspectRatio = width && height ? `${width}/${height}` : undefined;
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`relative overflow-hidden ${className}`} style={style}>
       {/* Placeholder while loading */}
       {!isLoaded && !hasError && (
         <div 

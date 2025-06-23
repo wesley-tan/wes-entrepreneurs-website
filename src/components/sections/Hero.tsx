@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20 relative overflow-hidden w-full"
       style={{
         backgroundImage: 'url(/background.png)',
         backgroundSize: 'cover',
@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-mont font-bold mb-6 sm:mb-8 leading-tight tracking-tight text-white drop-shadow-lg"
+          className="text-4xl sm:text-5xl md:text-6xl font-mont font-bold mb-6 sm:mb-8 leading-tight tracking-tight text-white drop-shadow-lg"
         >
           {siteContent.hero.title}
         </motion.h1>
@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-inter font-medium mb-4 sm:mb-6 leading-relaxed text-white drop-shadow-md"
+          className="text-lg sm:text-xl md:text-2xl font-inter font-medium mb-4 sm:mb-6 leading-relaxed text-white drop-shadow-md"
         >
           {siteContent.hero.subtitle}
         </motion.p>
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-base sm:text-lg md:text-xl font-inter mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed text-white/95 drop-shadow-sm px-2 sm:px-0"
+          className="text-base sm:text-lg font-inter mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed text-white/95 drop-shadow-sm px-2 sm:px-0"
         >
           {siteContent.hero.description}
         </motion.p>

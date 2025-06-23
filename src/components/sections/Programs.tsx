@@ -30,7 +30,7 @@ export const Programs: React.FC = () => {
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
               <div className="p-8">
-                <h3 className="text-2xl font-mont font-bold text-wes-royal mb-4">
+                <h3 className="text-xl font-mont font-bold text-wes-royal mb-3">
                   {program.title}
                 </h3>
                 <p className="font-inter text-wes-black leading-relaxed">
@@ -47,7 +47,7 @@ export const Programs: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <h3 className="text-3xl font-mont font-bold text-wes-royal text-center mb-12">
+          <h3 className="text-2xl font-mont font-bold text-wes-royal text-center mb-8">
             Featured Speakers
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
@@ -65,7 +65,7 @@ export const Programs: React.FC = () => {
                 <p className="font-inter text-wes-dim text-sm mb-3">
                   {speaker.title}
                 </p>
-                <p className="font-inter text-wes-black text-xs">
+                <p className="font-inter text-wes-black text-sm">
                   {speaker.description}
                 </p>
               </motion.div>

@@ -20,6 +20,12 @@ html, body {
   background-color: white;
   color: #1D1D1F;
   height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
