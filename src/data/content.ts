@@ -149,6 +149,6 @@ export const siteContent = {
   },
 
   forms: {
-    interestForm: "https://forms.gle/zJeDtJduEnPnb83u9"
+    membershipForm: "https://docs.google.com/forms/d/e/1FAIpQLSfQ_SFHlXJ7gzdQEOwZtLxaKl9WB-Fxk-ESqocfOwQWsdII1g/viewform"
   }
 }; 

@@ -1,47 +1,27 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link, useLocation } from 'react-router-dom';
 import logoImage from '../../assets/WesEntrepreneurLogo_MAIN.png';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Programs', href: '#programs' },
-  { name: 'Events', href: '#events' },
-  { name: 'Get Involved', href: '#get-involved' },
-  { name: 'Contact', href: '#contact' }
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Programs', href: '/programs' },
+  { name: 'Events', href: '/events' },
+  { name: 'Get Involved', href: '/get-involved' },
+  { name: 'Vision', href: '/vision' },
+  { name: 'Contact', href: '/contact' }
 ];
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-  const handleNavClick = (href: string) => {
-    console.log('Navigation clicked:', href);
-    setIsOpen(false);
-    
-    // Simple timeout to let mobile menu close
-    setTimeout(() => {
-      if (href === '#home') {
-        console.log('Scrolling to top');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-      
-      // Find the element
-      const elementId = href.replace('#', '');
-      const element = document.getElementById(elementId);
-      
-      if (element) {
-        console.log('Found element, scrolling...');
-        // Simple scrollIntoView with offset using CSS scroll-margin-top
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      } else {
-        console.error(`Element with ID "${elementId}" not found`);
-      }
-    }, 50);
+  const isActiveRoute = (href: string) => {
+    if (href === '/' && location.pathname === '/') return true;
+    if (href !== '/' && location.pathname === href) return true;
+    return false;
   };
 
   return (
@@ -50,15 +30,9 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <button
-              className="cursor-pointer border-none bg-transparent p-1 rounded"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Logo clicked');
-                handleNavClick('#home');
-              }}
-              type="button"
+            <Link
+              to="/"
+              className="cursor-pointer p-1 rounded"
               aria-label="Go to home"
             >
               <img 
@@ -74,25 +48,23 @@ export const Header: React.FC = () => {
                   console.log('Header logo loaded successfully');
                 }}
               />
-            </button>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <button
+              <Link
                 key={item.name}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  console.log('Desktop nav button clicked:', item.name, item.href);
-                  handleNavClick(item.href);
-                }}
-                className="text-wes-black hover:text-wes-royal transition-colors font-mont font-medium cursor-pointer border-none bg-transparent p-2 rounded"
-                type="button"
+                to={item.href}
+                className={`transition-colors font-mont font-medium p-2 rounded ${
+                  isActiveRoute(item.href)
+                    ? 'text-wes-royal font-bold'
+                    : 'text-wes-black hover:text-wes-royal'
+                }`}
               >
                 {item.name}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -120,18 +92,18 @@ export const Header: React.FC = () => {
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.name}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log('Mobile nav clicked:', item.name, item.href);
-                    handleNavClick(item.href);
-                  }}
-                  className="block w-full text-left px-3 py-2 text-wes-black hover:text-wes-royal font-mont font-medium"
-                  type="button"
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block w-full text-left px-3 py-2 font-mont font-medium ${
+                    isActiveRoute(item.href)
+                      ? 'text-wes-royal font-bold'
+                      : 'text-wes-black hover:text-wes-royal'
+                  }`}
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
             </div>
           </motion.div>

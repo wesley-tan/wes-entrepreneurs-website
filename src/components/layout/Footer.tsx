@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="font-inter text-sm"
           >
-            © 2024 Wesleyan Entrepreneurs
+            © 2025 Wesleyan Entrepreneurs
           </motion.p>
         </div>
       </div>
