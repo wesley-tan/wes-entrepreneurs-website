@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { siteContent } from '../../data/content';
+import logoImage from '../../assets/logo.png';
 
 export const Hero: React.FC = () => {
   return (
@@ -26,9 +27,17 @@ export const Hero: React.FC = () => {
           className="mb-6 sm:mb-8"
         >
           <img 
-            src="/logo.png" 
+            src={logoImage}
             alt="Wesleyan Entrepreneurs Logo" 
             className="h-20 sm:h-24 md:h-32 lg:h-40 mx-auto drop-shadow-lg"
+            onError={(e) => {
+              console.error('Logo failed to load:', e);
+              // Fallback to public path
+              (e.target as HTMLImageElement).src = '/logo.png';
+            }}
+            onLoad={() => {
+              console.log('Logo loaded successfully');
+            }}
           />
         </motion.div>
         
