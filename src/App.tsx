@@ -6,7 +6,6 @@ import { About } from './pages/About';
 import { Programs } from './pages/Programs';
 import { Events } from './pages/Events';
 import { GetInvolved } from './pages/GetInvolved';
-import { Vision } from './pages/Vision';
 import { Contact } from './pages/Contact';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
             <Route path="/programs" element={<Programs />} />
             <Route path="/events" element={<Events />} />
             <Route path="/get-involved" element={<GetInvolved />} />
-            <Route path="/vision" element={<Vision />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
