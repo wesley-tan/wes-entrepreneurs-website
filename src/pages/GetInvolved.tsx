@@ -1,6 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { 
+  UsersIcon,
+  CameraIcon,
+  PencilIcon,
+  MegaphoneIcon,
+  ComputerDesktopIcon,
+  BriefcaseIcon,
+  ChartBarIcon
+} from '@heroicons/react/24/outline';
 import { siteContent } from '../data/content';
+
+const getTeamIcon = (teamName: string) => {
+  const nameLower = teamName.toLowerCase();
+  if (nameLower.includes('marketing') || nameLower.includes('social')) return MegaphoneIcon;
+  if (nameLower.includes('tech') || nameLower.includes('development')) return ComputerDesktopIcon;
+  if (nameLower.includes('content') || nameLower.includes('writing')) return PencilIcon;
+  if (nameLower.includes('photo') || nameLower.includes('media')) return CameraIcon;
+  if (nameLower.includes('operations') || nameLower.includes('logistics')) return BriefcaseIcon;
+  if (nameLower.includes('data') || nameLower.includes('analytics')) return ChartBarIcon;
+  return UsersIcon; // default icon
+};
 
 export const GetInvolved: React.FC = () => {
   return (
@@ -23,22 +43,30 @@ export const GetInvolved: React.FC = () => {
 
           {/* Team Roles Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {siteContent.teams.map((team, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <h3 className="text-xl font-mont font-bold text-wes-royal mb-3">
-                  {team.name}
-                </h3>
-                <p className="font-inter text-wes-black text-sm leading-relaxed">
-                  {team.description}
-                </p>
-              </motion.div>
-            ))}
+            {siteContent.teams.map((team, index) => {
+              const IconComponent = getTeamIcon(team.name);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-wes-robin rounded-lg flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="w-6 h-6 text-wes-black" />
+                    </div>
+                    <h3 className="text-xl font-mont font-bold text-wes-royal">
+                      {team.name}
+                    </h3>
+                  </div>
+                  <p className="font-inter text-wes-black text-sm leading-relaxed">
+                    {team.description}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Simple Call to Action */}

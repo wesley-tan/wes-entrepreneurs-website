@@ -1,5 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { 
+  RocketLaunchIcon,
+  HeartIcon
+} from '@heroicons/react/24/outline';
 import { siteContent } from '../data/content';
 import { Image } from '../components/ui';
 
@@ -40,9 +44,14 @@ export const About: React.FC = () => {
                 />
               </div>
               
-              <h3 className="text-2xl font-mont font-bold text-wes-royal mb-4">
-                What We Do
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-wes-royal rounded-lg flex items-center justify-center flex-shrink-0">
+                  <RocketLaunchIcon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-2xl font-mont font-bold text-wes-royal">
+                  What We Do
+                </h3>
+              </div>
               <p className="font-inter text-wes-black leading-relaxed">
                 {siteContent.about.whatWeDo}
               </p>
@@ -65,9 +74,14 @@ export const About: React.FC = () => {
                 />
               </div>
               
-              <h3 className="text-2xl font-mont font-bold text-wes-royal mb-4">
-                Member Benefits
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-wes-cardinal rounded-lg flex items-center justify-center flex-shrink-0">
+                  <HeartIcon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-2xl font-mont font-bold text-wes-royal">
+                  Member Benefits
+                </h3>
+              </div>
               <p className="font-inter text-wes-black leading-relaxed">
                 {siteContent.about.memberBenefits}
               </p>
