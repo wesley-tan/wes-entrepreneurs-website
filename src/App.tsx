@@ -6,6 +6,7 @@ import { About } from './pages/About';
 import { Programs } from './pages/Programs';
 import { Events } from './pages/Events';
 import { GetInvolved } from './pages/GetInvolved';
+import { VenturesAtWes } from './pages/VenturesAtWes';
 import { Contact } from './pages/Contact';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path="/programs" element={<Programs />} />
             <Route path="/events" element={<Events />} />
             <Route path="/get-involved" element={<GetInvolved />} />
+            <Route path="/ventures" element={<VenturesAtWes />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
